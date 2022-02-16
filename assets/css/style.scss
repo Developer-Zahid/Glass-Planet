@@ -1,0 +1,151 @@
+$bg-color:#120f2a;
+$circle-bg:#9854a1;
+$border-color:#f16ca8;
+$water-color1:#0199da;
+$water-color2:#59caf6;
+$water-color3:#ee1a92;
+$ry-gradient: linear-gradient(to top,#ee4a25,#f5d930);
+$bw-gradient: linear-gradient(to top,#01b8f1,#f2fbfa);
+$pp-gradient: linear-gradient(-15deg,#c9588e,#7a53a2,#5053a4 50%);
+:root{
+    font-size: 10px;
+    @media (max-width: 600px) {
+        font-size: 5px;
+    }
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: $bg-color;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+.shadow{
+    --wh: 32rem;
+    position: absolute;
+    width: var(--wh);
+    height: var(--wh);
+    border-radius: 50%;
+    transform: translateZ(-200px);
+    box-shadow: 0 0 10px rgba($color: #252a52, $alpha: 1),
+    0 0 70px rgba($color: #252a52, $alpha: 1),
+    0 0 130px rgba($color: #252a52, $alpha: 1),
+    0 0 190px rgba($color: #252a52, $alpha: 1),
+    0 0 250px rgba($color: #252a52, $alpha: 1),
+    0 0 260px rgba($color: #252a52, $alpha: 1);
+}
+.planet{
+    --angle-x: 70deg;
+    --angle-y: -25deg;
+    --wh: 28rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--wh);
+    height: var(--wh);
+    border-radius: 50%;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    &::after{
+        content: "";
+        position: absolute;
+        transform: rotateX(var(--angle-x)) rotateY(var(--angle-y));
+        width: calc(var(--wh) * 1.45);
+        height: calc(var(--wh) * 1.1);
+        border-radius: 50%;
+        border: 1.3rem solid rgba($border-color, $alpha: 0.75);
+        transition: transform .4s linear;
+    }
+    &__sub1{
+        position: absolute;
+        top: -5rem;
+        left: -10rem;
+        transform: translateX(0) translateY(0);
+        transition: transform .3s linear;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        background: $ry-gradient;
+        z-index: 1;
+        box-shadow: 0 0 10px rgba(245, 217, 48,0.2),
+                0 0 25px rgba(245, 217, 48,0.2),
+                0 0 45px rgba(245, 217, 48,0.2);
+    }
+    &__sub2{
+        position: absolute;
+        right: -18rem;
+        bottom: -2rem;
+        transform: translateX(0) translateY(0);
+        transition: transform .4s linear;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        background: $bw-gradient;
+        z-index: 1;
+        box-shadow: 0 0 10px rgba(1, 184, 241,0.4),
+                0 0 25px rgba(1, 184, 241,0.3),
+                0 0 45px rgba(1, 184, 241,0.2);
+    }
+    &__sub3{
+        position: absolute;
+        right: -2rem;
+        bottom: -2rem;
+        transform: translateX(0) translateY(0);
+        transition: transform .4s linear;
+        width: 10rem;
+        height: 10rem;
+        border-radius: 50%;
+        background: $pp-gradient;
+        z-index: -1;
+    }
+    &__circle{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 0.6rem solid $border-color;
+        background: rgba($circle-bg, $alpha: 0.9);
+        overflow: hidden;
+    }
+    .wave1{
+        position: absolute;
+        top: 53%;
+        transform: rotate(0);
+        width: 210%;
+        height: 195%;
+        border-radius: 40%;
+        background-color: $water-color1;
+        transition: transform 1s linear;
+    }
+    .wave2{
+        position: absolute;
+        top: 60%;
+        transform: rotate(0);
+        width: 210%;
+        height: 200%;
+        border-radius: 40%;
+        background-color: rgba($water-color2, $alpha: 0.5);
+        transition: transform 1.5s linear;
+    }
+    .wave3{
+        position: absolute;
+        top: 80%;
+        transform: rotate(0);
+        width: 210%;
+        height: 200%;
+        border-radius: 40%;
+        background-color: $water-color3;
+        transition: transform 2s linear;
+    }
+}

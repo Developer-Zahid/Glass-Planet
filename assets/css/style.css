@@ -1,0 +1,206 @@
+:root {
+  font-size: 10px;
+}
+
+@media (max-width: 600px) {
+  :root {
+    font-size: 5px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  background: #120f2a;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+.shadow {
+  --wh: 32rem;
+  position: absolute;
+  width: var(--wh);
+  height: var(--wh);
+  border-radius: 50%;
+  -webkit-transform: translateZ(-200px);
+          transform: translateZ(-200px);
+  -webkit-box-shadow: 0 0 10px #252a52, 0 0 70px #252a52, 0 0 130px #252a52, 0 0 190px #252a52, 0 0 250px #252a52, 0 0 260px #252a52;
+          box-shadow: 0 0 10px #252a52, 0 0 70px #252a52, 0 0 130px #252a52, 0 0 190px #252a52, 0 0 250px #252a52, 0 0 260px #252a52;
+}
+
+.planet {
+  --angle-x: 70deg;
+  --angle-y: -25deg;
+  --wh: 28rem;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: var(--wh);
+  height: var(--wh);
+  border-radius: 50%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+.planet::after {
+  content: "";
+  position: absolute;
+  -webkit-transform: rotateX(var(--angle-x)) rotateY(var(--angle-y));
+          transform: rotateX(var(--angle-x)) rotateY(var(--angle-y));
+  width: calc(var(--wh) * 1.45);
+  height: calc(var(--wh) * 1.1);
+  border-radius: 50%;
+  border: 1.3rem solid rgba(241, 108, 168, 0.75);
+  -webkit-transition: -webkit-transform .4s linear;
+  transition: -webkit-transform .4s linear;
+  transition: transform .4s linear;
+  transition: transform .4s linear, -webkit-transform .4s linear;
+}
+
+.planet__sub1 {
+  position: absolute;
+  top: -5rem;
+  left: -10rem;
+  -webkit-transform: translateX(0) translateY(0);
+          transform: translateX(0) translateY(0);
+  -webkit-transition: -webkit-transform .3s linear;
+  transition: -webkit-transform .3s linear;
+  transition: transform .3s linear;
+  transition: transform .3s linear, -webkit-transform .3s linear;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: -webkit-gradient(linear, left bottom, left top, from(#ee4a25), to(#f5d930));
+  background: linear-gradient(to top, #ee4a25, #f5d930);
+  z-index: 1;
+  -webkit-box-shadow: 0 0 10px rgba(245, 217, 48, 0.2), 0 0 25px rgba(245, 217, 48, 0.2), 0 0 45px rgba(245, 217, 48, 0.2);
+          box-shadow: 0 0 10px rgba(245, 217, 48, 0.2), 0 0 25px rgba(245, 217, 48, 0.2), 0 0 45px rgba(245, 217, 48, 0.2);
+}
+
+.planet__sub2 {
+  position: absolute;
+  right: -18rem;
+  bottom: -2rem;
+  -webkit-transform: translateX(0) translateY(0);
+          transform: translateX(0) translateY(0);
+  -webkit-transition: -webkit-transform .4s linear;
+  transition: -webkit-transform .4s linear;
+  transition: transform .4s linear;
+  transition: transform .4s linear, -webkit-transform .4s linear;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: -webkit-gradient(linear, left bottom, left top, from(#01b8f1), to(#f2fbfa));
+  background: linear-gradient(to top, #01b8f1, #f2fbfa);
+  z-index: 1;
+  -webkit-box-shadow: 0 0 10px rgba(1, 184, 241, 0.4), 0 0 25px rgba(1, 184, 241, 0.3), 0 0 45px rgba(1, 184, 241, 0.2);
+          box-shadow: 0 0 10px rgba(1, 184, 241, 0.4), 0 0 25px rgba(1, 184, 241, 0.3), 0 0 45px rgba(1, 184, 241, 0.2);
+}
+
+.planet__sub3 {
+  position: absolute;
+  right: -2rem;
+  bottom: -2rem;
+  -webkit-transform: translateX(0) translateY(0);
+          transform: translateX(0) translateY(0);
+  -webkit-transition: -webkit-transform .4s linear;
+  transition: -webkit-transform .4s linear;
+  transition: transform .4s linear;
+  transition: transform .4s linear, -webkit-transform .4s linear;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background: linear-gradient(-15deg, #c9588e, #7a53a2, #5053a4 50%);
+  z-index: -1;
+}
+
+.planet__circle {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 0.6rem solid #f16ca8;
+  background: rgba(152, 84, 161, 0.9);
+  overflow: hidden;
+}
+
+.planet .wave1 {
+  position: absolute;
+  top: 53%;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+  width: 210%;
+  height: 195%;
+  border-radius: 40%;
+  background-color: #0199da;
+  -webkit-transition: -webkit-transform 1s linear;
+  transition: -webkit-transform 1s linear;
+  transition: transform 1s linear;
+  transition: transform 1s linear, -webkit-transform 1s linear;
+}
+
+.planet .wave2 {
+  position: absolute;
+  top: 60%;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+  width: 210%;
+  height: 200%;
+  border-radius: 40%;
+  background-color: rgba(89, 202, 246, 0.5);
+  -webkit-transition: -webkit-transform 1.5s linear;
+  transition: -webkit-transform 1.5s linear;
+  transition: transform 1.5s linear;
+  transition: transform 1.5s linear, -webkit-transform 1.5s linear;
+}
+
+.planet .wave3 {
+  position: absolute;
+  top: 80%;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+  width: 210%;
+  height: 200%;
+  border-radius: 40%;
+  background-color: #ee1a92;
+  -webkit-transition: -webkit-transform 2s linear;
+  transition: -webkit-transform 2s linear;
+  transition: transform 2s linear;
+  transition: transform 2s linear, -webkit-transform 2s linear;
+}
+/*# sourceMappingURL=style.css.map */
